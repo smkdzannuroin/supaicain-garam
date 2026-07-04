@@ -331,25 +331,8 @@
         ]
       });
 
-      // ---- 4. Fetch Data dari API (opsional, saat backend aktif) ----
-      async function loadDashboardData() {
-        try {
-          const res = await apiGet('/dashboard/stats');
-          if (res && res.ok) {
-            const d = res.data;
-            document.getElementById('statProduk').textContent = d.total_produk ?? '128';
-            document.getElementById('statProduksi').textContent = (d.produksi_bulan_ini ?? '5.4') + 'T';
-            document.getElementById('statPending').textContent = d.order_pending ?? '24';
-            document.getElementById('statStok').textContent = (d.stok_gudang ?? '12.8') + 'T';
-          }
-        } catch (e) {
-          // Gunakan data dummy jika API belum aktif
-          console.log('API belum aktif, menggunakan data dummy.');
-        }
-      }
-
-      // Panggil API untuk mengambil data dari backend
-      loadDashboardData();
+      // Data dummy sudah ada di HTML, tidak perlu fetch dari API.
+      console.log('Mode Demo: Memuat data dummy dashboard.');
     });
   </script>
 
